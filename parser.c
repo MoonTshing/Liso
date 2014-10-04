@@ -92,8 +92,7 @@ int httpParser(char *buf, requestLine *argu)
         if(0 == BadRq(argu,key))
         {
             argu->status = 400;
-        }else
-        {
+        }
             if(strcmp(key,"Content-Type:")==0)
              {   
              strcpy(argu->contentType,value);
@@ -105,7 +104,7 @@ int httpParser(char *buf, requestLine *argu)
              {
                      strcpy(argu->connect,value);
               }
-        }
+        
         
         
         pch = strtok(NULL,"\n");

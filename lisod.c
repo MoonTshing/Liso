@@ -26,11 +26,11 @@ int main(int argc, char* argv[])
     logfd = fopen(argument.logfile,"a+");
     if(initSSL()==EXIT_FAILURE)
       {printf("ssl init failed\n");}
-  if(daemonize(argument.lckfile) == EXIT_FAILURE)
+ /* if(daemonize(argument.lckfile) == EXIT_FAILURE)
     {
       printf("Failed to daemonize\n");
       return EXIT_FAILURE;
-    }
+    }*/
    
  // do{
         if(initHttp() == EXIT_FAILURE )

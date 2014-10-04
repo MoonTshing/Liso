@@ -236,7 +236,7 @@ int checkReqst(requestLine *req)
 		req->status = 501;
 	}
 
-	if(strcmp(req->version, "HTTP/1.1") != 0) {
+	if((strcmp(req->version, "HTTP/1.1") != 0) && req->status == 200) {
 		req->status = 505;
 
 	}
@@ -256,7 +256,7 @@ int checkReqst(requestLine *req)
 		req->contentLength = file.st_size;
 		formatFileModifedTime(&file, req->lastModified);
 	}
-	if(req->contentLength <= 0)
+	if((req->contentLength < 0) && (req->status == 200) )
 	{
 		req->status = 400;
 	}
