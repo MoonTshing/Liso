@@ -167,7 +167,7 @@ int statusAdd(requestLine *req)
 
 
 int contentType(requestLine *req){
-	char *extension;
+	char *extension=NULL;
 	
 	if(req->status == 200)
 	{
