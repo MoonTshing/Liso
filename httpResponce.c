@@ -249,7 +249,7 @@ int checkReqst(requestLine *req)
 		//printf("filepath   %s\n\n", req->relativePath);
 		if(stat(req->relativePath, &file) == -1)
 		{
-			req->status = 404;
+			//req->status = 404;
 			return -1;
 		}
 
