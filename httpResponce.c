@@ -103,7 +103,7 @@ void responseLine(requestLine *req,clientSock *client, SetPool *pool)
 {
 	checkReqst(req);
 	contentType(req);
-	strcpy(req->connect, "Keep-Alive");
+	//strcpy(req->connect, "Keep-Alive");
 	statusAdd(req);
 	headerAdd(req);
 	strcat(req->header,"\r\n");

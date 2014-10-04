@@ -8,9 +8,7 @@ int Parser(clientSock *client,requestLine *argu)
 	{
 		if( (cmpletReq != NULL) && argu->status != 411) {
 			httpParser(cmpletReq,argu);
-		} else {
-      printf("status must be wrong\n");
-    }
+		} 
 		return 1;
 	}
 	else{
@@ -31,7 +29,7 @@ static int BadRq(requestLine *argu, char *key)
                          "User-Agent:",
                          "Accept:",
                          "Accept-Language:",
-                          "Accept-Encoding:",
+                         "Accept-Encoding:",
                          "Cache-Control:",
                          "Accept-Encoding:"
                         };
@@ -105,7 +103,7 @@ int httpParser(char *buf, requestLine *argu)
                     if(argu->contentLength < 0)
                      {   
                           argu->contentLength = 0;
-                          argu->status = 411;
+                          argu->status = 400;
                       }
              }
              else if(strcmp(key,"Connection:")==0)
@@ -119,7 +117,7 @@ int httpParser(char *buf, requestLine *argu)
 
     }
     free(leftLine);
-  //  printf("req->status: %d\n",argu->status);
+    printf("req->status: %d\n",argu->status);
     return 1;
 }
 
