@@ -256,6 +256,9 @@ int checkReqst(requestLine *req)
 		req->contentLength = file.st_size;
 		formatFileModifedTime(&file, req->lastModified);
 	}
-	
+	if(req->contentLength <= 0 || req->contentLength >= 4096)
+	{
+		req->status = 400;
+	}
 	return 1;
 }

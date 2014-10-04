@@ -100,11 +100,6 @@ int httpParser(char *buf, requestLine *argu)
              }else if(strcmp(key,"Content-Length:")==0)
              {
                     argu->contentLength = atoi(value);
-                    if(argu->contentLength <= 0 && argu->contentLength>4096)
-                     {   
-                          argu->contentLength = 0;
-                          argu->status = 400;
-                      }
              }
              else if(strcmp(key,"Connection:")==0)
              {
