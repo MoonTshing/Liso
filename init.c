@@ -59,12 +59,13 @@ void initArgu(requestLine *argu){
   strcpy(argu->version,"HTTP/1.1");
   argu->contentLength = 0;
   argu->status = 200;
-  strcpy(argu->host," ");
+  strcpy(argu->host,"");
   strcpy(argu->header,"");
   strcpy(argu->contentType,"");
   strcpy(argu->lastModified,"");
   strcpy(argu->server,"Liso/1.0");
   strcpy(argu->statusLine,"");
+  strcpy(argu->connect,"Keep-Alive");
 }
 
 void initPool(SetPool *pool, int sock)

@@ -239,6 +239,7 @@ int checkReqst(requestLine *req)
 		req->status = 505;
 
 	}
+	printf("before find the file: %d\n",req->status);
 	if(req->status == 200)
 	{
 
