@@ -1,0 +1,4 @@
+git tag -d checkpoint-3
+git add -A .
+git commit -m “autolab”
+git tag -f checkpoint-3
