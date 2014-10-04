@@ -210,7 +210,7 @@ void headerAdd(requestLine *req)
 	strcat(req->header,temp);
 	sprintf(temp,"Content-Length: %d\r\n",req->contentLength);
 	strcat(req->header,temp);
-	if(req->status != 404)
+	if(req->status != 200)
 	{
 		sscanf(req->lastModified,"%s %s %s %s %s",day,mon,date,hour,year);
 		sprintf(temp,"Last-Modified: %s, %s %s %s %s\r\n",day, date, mon, year,hour);
@@ -249,7 +249,7 @@ int checkReqst(requestLine *req)
 		//printf("filepath   %s\n\n", req->relativePath);
 		if(stat(req->relativePath, &file) == -1)
 		{
-			//req->status = 404;
+			req->status = 404;
 			return -1;
 		}
 
