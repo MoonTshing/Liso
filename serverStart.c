@@ -154,7 +154,10 @@ int serverStart()
                           //  printf("counter:  %d\n", ++p);
                             responseLine(&reqLine,&client[i], &poolHttp);
                           }
-                          
+                          if(strcmp(reqLine.connect,"Close") == 0)
+                          {
+                            cleanClientSock(&client[i],&poolHttp);
+                          }
                          
                        
                       }     
@@ -223,6 +226,10 @@ int serverStart()
                             cleanClientSock(&client[i], &poolHttps);
                           }*/
                          
+                          if(strcmp(reqLine.connect,"Close") == 0)
+                          {
+                            cleanClientSock(&client[i],&poolHttps);
+                          }
                        
                       }     
                }
