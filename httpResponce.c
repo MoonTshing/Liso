@@ -168,11 +168,12 @@ int statusAdd(requestLine *req)
 
 int contentType(requestLine *req){
 	char *extension;
-	if(!(extension = strrchr(req->relativePath, '.')))
-	{
-		req->status = 404;
-		return 0;
-	}
+	//if(req->status)
+		if(!(extension = strrchr(req->relativePath, '.')))
+		{
+			//req->status = 404;
+			return 0;
+		}
 	if(!strcmp(extension,".jpg")){
 		strcpy(req->contentType,"image/jpeg");
 	}else if(!strcmp(extension,".png")){
